@@ -6,7 +6,7 @@ ARG OWNER=jupyter
 ARG BASE_CONTAINER=$OWNER/base-notebook:0fd03d9356de
 FROM $BASE_CONTAINER
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="olwimo <18525061+olwimo@users.noreply.github.com>"
 
 # Fix: https://github.com/hadolint/hadolint/wiki/DL4006
 # Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
