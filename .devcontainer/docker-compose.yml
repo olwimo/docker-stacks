@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  datascience:
+    container_name: datascience-wscontainer
+    restart: unless-stopped
+    build:
+      args:
+        - NODE_VERSION=node
+        - USERNAME=jovyan
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/home/jovyan/work:cached
+    user: jovyan
+    init: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+              driver: nvidia
+              count: all
