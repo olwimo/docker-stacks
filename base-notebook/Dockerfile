@@ -3,8 +3,8 @@
 
 # Ubuntu 22.04 (jammy)
 # https://hub.docker.com/_/ubuntu/tags?page=1&name=jammy
-ARG ROOT_CONTAINER=registry.gitlab.com/olwim/containers/universal
-# nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+# ARG ROOT_CONTAINER=registry.gitlab.com/olwim/containers/universal:latest
+ARG ROOT_CONTAINER=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 FROM $ROOT_CONTAINER
 
