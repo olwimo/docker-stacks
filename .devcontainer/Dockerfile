@@ -1,10 +1,10 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/python-3-anaconda/.devcontainer/base.Dockerfile
 
-FROM olwimo/datascience-notebook:latest
+FROM registry.gitlab.com/olwim/containers/datascience-notebook:latest
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
 ARG NODE_VERSION="none"
-USER jovyan
+USER ${NB_UID}
 RUN if [ "${NODE_VERSION}" != "none" ]; then curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION} 2>&1; fi
 # RUN if [ "${NODE_VERSION}" != "none" ]; then su jovyan -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 

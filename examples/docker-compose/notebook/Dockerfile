@@ -2,7 +2,7 @@
 # Distributed under the terms of the Modified BSD License.
 
 # Pick your favorite docker-stacks image
-FROM olwimo/minimal-notebook:0fd03d9356de
+FROM registry.gitlab.com/olwim/containers/minimal-notebook:latest
 
 USER root
 

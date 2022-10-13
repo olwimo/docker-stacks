@@ -2,7 +2,7 @@
 # Distributed under the terms of the Modified BSD License.
 
 # https://hub.docker.com/r/jupyter/base-notebook/tags
-ARG OWNER=jupyter
+ARG OWNER=registry.gitlab.com/olwim/containers
 ARG BASE_CONTAINER=$OWNER/base-notebook:0fd03d9356de
 FROM $BASE_CONTAINER
 

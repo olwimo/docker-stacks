@@ -1,14 +1,17 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-ARG ROOT_CONTAINER=nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
+# Ubuntu 22.04 (jammy)
+# https://hub.docker.com/_/ubuntu/tags?page=1&name=jammy
+ARG ROOT_CONTAINER=registry.gitlab.com/olwim/containers/universal
+# nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 FROM $ROOT_CONTAINER
 
 LABEL maintainer="olwimo <18525061+olwimo@users.noreply.github.com>"
-ARG NB_USER="jovyan"
+ARG NB_USER="codespace"
 ARG NB_UID="1000"
-ARG NB_GID="100"
+ARG NB_GID="1000"
 
 # Fix: https://github.com/hadolint/hadolint/wiki/DL4006
 # Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
@@ -30,7 +33,7 @@ RUN apt-get update --yes && \
     fonts-liberation \
     locales \
     # - pandoc is used to convert notebooks to html files
-    #   it's not present in arm64 ubuntu image, so we install it here
+    #   it's not present in aarch64 ubuntu image, so we install it here
     pandoc \
     # - run-one - a wrapper script that runs no more
     #   than one unique  instance  of  some  command with a unique set of arguments,

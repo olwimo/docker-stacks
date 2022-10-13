@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG OWNER=jupyter
+ARG OWNER=registry.gitlab.com/olwim/containers
 ARG BASE_CONTAINER=$OWNER/minimal-notebook
 FROM $BASE_CONTAINER
 
@@ -42,6 +42,7 @@ RUN mamba install --quiet --yes \
     'matplotlib-base' \
     'numba' \
     'numexpr' \
+    'openpyxl' \
     'pandas' \
     'patsy' \
     'protobuf' \
