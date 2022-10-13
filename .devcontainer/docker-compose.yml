@@ -7,12 +7,12 @@ services:
     build:
       args:
         - NODE_VERSION=node
-        - USERNAME=jovyan
+        - USERNAME=codespace
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/home/jovyan/work:cached
-    user: jovyan
+      - ..:/workspace:cached
+    user: codespace
     init: true
     deploy:
       resources:

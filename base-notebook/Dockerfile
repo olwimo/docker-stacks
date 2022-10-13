@@ -89,8 +89,9 @@ USER ${NB_UID}
 ARG PYTHON_VERSION=3.10
 
 # Setup work directory for backward-compatibility
-RUN mkdir "/home/${NB_USER}/work" && \
-    fix-permissions "/home/${NB_USER}"
+# RUN mkdir "/home/${NB_USER}/work" && \
+#     fix-permissions "/home/${NB_USER}"
+RUN fix-permissions "/home/${NB_USER}"
 
 # Download and install Micromamba, and initialize Conda prefix.
 #   <https://github.com/mamba-org/mamba#micromamba>
@@ -167,4 +168,8 @@ HEALTHCHECK  --interval=15s --timeout=3s --start-period=5s --retries=3 \
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
 
-WORKDIR "${HOME}"
+VOLUME [ "/workspace" ]
+
+WORKDIR /workspace
+
+# WORKDIR "${HOME}"
