@@ -110,9 +110,4 @@ RUN julia -e 'import Pkg; Pkg.update()' && \
     rm -rf "${HOME}/.local" && \
     fix-permissions "${JULIA_PKGDIR}" "${CONDA_DIR}/share/jupyter"
 
-# WORKDIR "${HOME}"
-
-VOLUME [ "/workspace" ]
-
-WORKDIR /workspace
-
+WORKDIR "${HOME}"
