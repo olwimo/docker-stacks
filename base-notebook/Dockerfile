@@ -22,6 +22,10 @@ USER root
 # Install all OS dependencies for notebook server that starts but lacks all
 # features (e.g., download as all possible file formats)
 ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    # Restore man command
+    && yes | unminimize 2>&1 
+
 RUN apt-get update --yes && \
     # - apt-get upgrade is run to patch known vulnerabilities in apt-get packages as
     #   the ubuntu base image is rebuilt too seldom sometimes (less than once a month)
